@@ -147,22 +147,12 @@ LSTM is capable of capturing nonlinear patterns and long-term dependencies withi
 
 ## Actual vs SARIMAX Forecast
 
-![SARIMAX Forecast](images/sarimax_forecast.png)
+<img src="./results/plots/SARIMAX_forecast.png" width="800">
 
 
 ## Actual vs LSTM Forecast
 
-![LSTM Forecast](images/lstm_forecast.png)
-
-
-## Model Forecast Comparison
-
-![Forecast Comparison](images/model_comparison.png)
-
-
-## Residual Analysis
-
-![Residual Analysis](images/residuals.png)
+<img src="./results/plots/LSTM_forecast.png" width="800">
 
 
 ---
