@@ -77,18 +77,7 @@ Created features include:
 - Trend indicators
 - Lag variables
 
-Lag features:
 
-```
-Lag 1 Year
-Lag 3 Years
-Lag 5 Years
-Lag 10 Years
-```
-
-Additional external indicators were incorporated to capture factors influencing human capital development.
-
----
 
 # Forecasting Models
 
@@ -147,12 +136,12 @@ LSTM is capable of capturing nonlinear patterns and long-term dependencies withi
 
 ## Actual vs SARIMAX Forecast
 
-<img src="./results/plots/SARIMAX_forecast.png" width="800">
+<img src="./results/SARIMAX_forecast.png" width="800">
 
 
 ## Actual vs LSTM Forecast
 
-<img src="./results/plots/LSTM_forecast.png" width="800">
+<img src="./results/LSTM_forecast.png" width="800">
 
 
 ---
