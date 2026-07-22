@@ -51,53 +51,6 @@ Future Human Capital Prediction
 
 ---
 
-# Dataset
-
-The dataset contains historical indicators related to Botswana's human capital development.
-
-## Target Variable
-
-```
-Human Capital Index
-```
-
-## Input Features
-
-The model uses historical socioeconomic and economic indicators to predict future human capital trends.
-
-The dataset was transformed into a time-series forecasting format to capture:
-
-- Historical trends
-- Long-term dependencies
-- Growth patterns
-- Economic influences
-
----
-
-# Feature Engineering
-
-Additional time-series features were created to improve forecasting performance.
-
-Generated features include:
-
-- Human Capital growth rate
-- Human Capital change
-- Rolling averages
-- Trend indicators
-- Lag variables
-
-Lag features:
-
-```
-Lag 1 Year
-Lag 3 Years
-Lag 5 Years
-Lag 10 Years
-```
-
-These features allow the models to learn historical patterns and delayed effects influencing human capital development.
-
----
 
 # Forecasting Models
 
@@ -154,35 +107,7 @@ The LSTM model learns sequential relationships from previous observations to pre
 
 ---
 
-# Forecast Visualizations
 
-
-## Actual vs SARIMAX Forecast
-
-<img src="./results/SARIMAX_forecast.png" width="800">
-
-
-## Actual vs LSTM Forecast
-
-<img src="./results/LSTM_forecast.png" width="800">
-
-
-## Forecast Comparison
-
-<img src="./results/model_comparison.png" width="800">
-
-
-## Residual Analysis
-
-<img src="./results/residuals.png" width="800">
-
-
-## Future Human Capital Forecast
-
-<img src="./results/future_forecast.png" width="800">
-
-
----
 
 # Model Evaluation
 
@@ -240,51 +165,8 @@ Based on the evaluation metrics:
 
 ---
 
-# How to Run the Project
+# How to Run the Models
 
-## 1. Clone Repository
-
-```bash
-git clone https://github.com/G2TK-Industries/DLIB-Hackathon-2026.git
-
-cd DLIB-Hackathon-2026
-```
-
----
-
-# 2. Create Virtual Environment
-
-
-### Windows
-
-```bash
-python -m venv venv
-
-venv\Scripts\activate
-```
-
-
-### Linux / macOS
-
-```bash
-python3 -m venv venv
-
-source venv/bin/activate
-```
-
----
-
-# 3. Install Dependencies
-
-Install required libraries:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# Running the Models
 
 ## Step 1: Feature Engineering
 
@@ -308,7 +190,7 @@ This creates:
 Run:
 
 ```bash
-python src/sarimax_model.py
+python src/models/classical_model.py
 ```
 
 The model will:
@@ -335,7 +217,7 @@ results/
 Run:
 
 ```bash
-python src/lstm_model.py
+python src/models/deep_model.py
 ```
 
 The model will:
