@@ -17,40 +17,6 @@ The objective of this project is to identify the most suitable forecasting model
 
 ---
 
-# Project Workflow
-
-The project follows a complete machine learning time-series forecasting pipeline:
-
-```
-Data Collection
-
-        ↓
-
-Data Preprocessing
-
-        ↓
-
-Feature Engineering
-
-        ↓
-
-Model Training
-
-        ↓
-
-Forecast Generation
-
-        ↓
-
-Model Evaluation
-
-        ↓
-
-Future Human Capital Prediction
-```
-
----
-
 
 # Forecasting Models
 
@@ -80,34 +46,9 @@ SARIMAX combines:
 ## 2. LSTM Model
 
 A Long Short-Term Memory neural network was implemented to capture nonlinear patterns and long-term dependencies.
-
-LSTM architecture:
-
-```
-Historical Time-Series Input
-
-          ↓
-
-       LSTM Layer
-
-          ↓
-
-      Dropout Layer
-
-          ↓
-
-     Dense Layer
-
-          ↓
-
-Human Capital Forecast
-```
-
 The LSTM model learns sequential relationships from previous observations to predict future human capital values.
 
 ---
-
-
 
 # Model Evaluation
 
@@ -304,5 +245,3 @@ The developed forecasting framework provides insights into future human capital 
 # Author
 
 **G2TK Industries**
-
-DLIB Hackathon 2026
