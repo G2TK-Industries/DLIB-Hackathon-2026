@@ -239,59 +239,6 @@ results/
 
 ---
 
-# Step 4: Evaluate Models
-
-Run:
-
-```bash
-python src/evaluate.py
-```
-
-The evaluation script compares SARIMAX and LSTM using:
-
-- RMSE
-- MAE
-- R² Score
-- MAPE
-
-
-Example output:
-
-```
-===== SARIMAX Evaluation =====
-
-RMSE : 1262.4350
-MAE  : 959.4601
-R2   : -1.0149
-MAPE : 46.4661%
-
-
-===== LSTM Evaluation =====
-
-RMSE : 1637.7253
-MAE  : 1444.5431
-R2   : -2.2842
-MAPE : 84.0315%
-```
-
----
-
-# Step 5: Generate Future Forecast
-
-Run:
-
-```bash
-python src/forecast.py
-```
-
-Output:
-
-```
-results/
-
-└── future_forecast.png
-```
-
 ---
 
 # Project Structure
@@ -343,13 +290,6 @@ Forecasting-Botswana-Human-Capital/
 - Statsmodels
 - TensorFlow / Keras
 
-
-## Visualization
-
-- Matplotlib
-
-
----
 
 # Conclusion
 
