@@ -1,21 +1,10 @@
-# Python
+# Virtual environments
+.venv/
+venv/
+
+# Ignore cache
 __pycache__/
 *.pyc
 
-# Virtual environment
-venv/
-.env
-
-# Jupyter
+# Ignore temporary files
 .ipynb_checkpoints/
-
-# Model files (optional)
-*.h5
-*.keras
-
-# Large datasets
-*.csv
-
-# OS files
-.DS_Store
-Thumbs.db
