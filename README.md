@@ -2,7 +2,9 @@
 
 ## Overview
 
-Human capital development is a key driver of Botswana's economic growth, productivity, and long-term national development. Accurate forecasting of human capital trends can support evidence-based decision-making, policy planning, and strategic investment in education, skills development, and workforce improvement.
+Human capital development is a key driver of Botswana's economic growth, productivity, innovation, and long-term national development.
+
+Accurate forecasting of human capital trends can support evidence-based decision-making, policy planning, workforce development strategies, and investment prioritization in education, healthcare, and skills development.
 
 This project focuses on forecasting Botswana's Human Capital using historical socioeconomic and economic indicators.
 
@@ -11,13 +13,13 @@ Two forecasting approaches were implemented and compared:
 - **SARIMAX (Seasonal AutoRegressive Integrated Moving Average with Exogenous Variables)**
 - **LSTM (Long Short-Term Memory Neural Network)**
 
-The objective of this project is to determine the most suitable forecasting approach for predicting future human capital trends in Botswana.
+The objective of this project is to identify the most suitable forecasting model for predicting future human capital trends in Botswana.
 
 ---
 
 # Project Workflow
 
-The project follows a complete time-series forecasting pipeline:
+The project follows a complete machine learning time-series forecasting pipeline:
 
 ```
 Data Collection
@@ -53,23 +55,30 @@ Future Human Capital Prediction
 
 The dataset contains historical indicators related to Botswana's human capital development.
 
-The target variable is:
+## Target Variable
 
 ```
 Human Capital Index
 ```
 
-Additional socioeconomic and economic indicators were used as predictive variables.
+## Input Features
 
-The dataset was prepared into a time-series forecasting format to capture historical patterns and future trends.
+The model uses historical socioeconomic and economic indicators to predict future human capital trends.
+
+The dataset was transformed into a time-series forecasting format to capture:
+
+- Historical trends
+- Long-term dependencies
+- Growth patterns
+- Economic influences
 
 ---
 
 # Feature Engineering
 
-To improve forecasting performance, additional time-series features were generated.
+Additional time-series features were created to improve forecasting performance.
 
-Created features include:
+Generated features include:
 
 - Human Capital growth rate
 - Human Capital change
@@ -77,13 +86,24 @@ Created features include:
 - Trend indicators
 - Lag variables
 
+Lag features:
 
+```
+Lag 1 Year
+Lag 3 Years
+Lag 5 Years
+Lag 10 Years
+```
+
+These features allow the models to learn historical patterns and delayed effects influencing human capital development.
+
+---
 
 # Forecasting Models
 
 ## 1. SARIMAX Model
 
-SARIMAX was implemented as a statistical forecasting model.
+SARIMAX was implemented as the statistical forecasting approach.
 
 SARIMAX combines:
 
@@ -93,18 +113,20 @@ SARIMAX combines:
 - Seasonal patterns
 - External variables
 
-Advantages:
+
+### Advantages
 
 - Suitable for time-series forecasting
 - Captures historical dependencies
-- Provides interpretable results
+- Handles external influencing variables
+- Provides interpretable forecasts
 
 
 ---
 
 ## 2. LSTM Model
 
-A Long Short-Term Memory neural network was implemented to learn complex temporal relationships.
+A Long Short-Term Memory neural network was implemented to capture nonlinear patterns and long-term dependencies.
 
 LSTM architecture:
 
@@ -128,11 +150,12 @@ Historical Time-Series Input
 Human Capital Forecast
 ```
 
-LSTM is capable of capturing nonlinear patterns and long-term dependencies within sequential data.
+The LSTM model learns sequential relationships from previous observations to predict future human capital values.
 
 ---
 
 # Forecast Visualizations
+
 
 ## Actual vs SARIMAX Forecast
 
@@ -144,17 +167,32 @@ LSTM is capable of capturing nonlinear patterns and long-term dependencies withi
 <img src="./results/LSTM_forecast.png" width="800">
 
 
+## Forecast Comparison
+
+<img src="./results/model_comparison.png" width="800">
+
+
+## Residual Analysis
+
+<img src="./results/residuals.png" width="800">
+
+
+## Future Human Capital Forecast
+
+<img src="./results/future_forecast.png" width="800">
+
+
 ---
 
 # Model Evaluation
 
-The models were evaluated using four forecasting metrics:
+The models were evaluated using:
 
 | Metric | Description |
 |---|---|
-| RMSE | Measures average prediction error magnitude |
+| RMSE | Measures prediction error magnitude |
 | MAE | Measures average absolute forecasting error |
-| R² Score | Measures how well the model explains variation |
+| R² Score | Measures explained variation |
 | MAPE | Measures percentage forecasting error |
 
 
@@ -170,34 +208,241 @@ The models were evaluated using four forecasting metrics:
 
 # Model Performance Analysis
 
-Based on the evaluation results:
+## SARIMAX Performance
 
-### SARIMAX
+SARIMAX achieved:
 
-- Achieved lower RMSE compared to LSTM
-- Achieved lower MAE compared to LSTM
-- Produced lower forecasting error percentage (MAPE)
+- Lower RMSE
+- Lower MAE
+- Lower MAPE
 
-### LSTM
+compared to LSTM.
 
-- Captured nonlinear relationships but produced higher forecasting errors on the available dataset.
+This indicates that SARIMAX produced more accurate forecasts for the available Botswana human capital dataset.
 
-Based on the evaluation metrics, **SARIMAX was selected as the better-performing forecasting model for this dataset.**
 
-Selected Model:
+## LSTM Performance
 
-## SARIMAX
+The LSTM model was able to learn nonlinear relationships but produced higher forecasting errors.
+
+Possible reasons include:
+
+- Limited historical data availability
+- Small time-series sample size
+- High model complexity compared to available data
+
+
+## Selected Model
+
+Based on the evaluation metrics:
+
+**SARIMAX was selected as the final forecasting model.**
 
 ---
 
-# Future Forecast
+# How to Run the Project
 
-The selected SARIMAX model was used to forecast future human capital trends in Botswana.
+## 1. Clone Repository
 
-Forecast output:
+```bash
+git clone https://github.com/G2TK-Industries/DLIB-Hackathon-2026.git
 
-![Future Human Capital Forecast](images/future_forecast.png)
+cd DLIB-Hackathon-2026
+```
 
+---
+
+# 2. Create Virtual Environment
+
+
+### Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+# 3. Install Dependencies
+
+Install required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Running the Models
+
+## Step 1: Feature Engineering
+
+Generate forecasting features:
+
+```bash
+python src/features.py
+```
+
+This creates:
+
+- Lag features
+- Rolling averages
+- Growth indicators
+- Trend features
+
+---
+
+# Step 2: Train SARIMAX Model
+
+Run:
+
+```bash
+python src/sarimax_model.py
+```
+
+The model will:
+
+- Load processed data
+- Train SARIMAX
+- Generate forecasts
+- Save predictions
+- Create visualization outputs
+
+
+Output:
+
+```
+results/
+
+└── SARIMAX_forecast.png
+```
+
+---
+
+# Step 3: Train LSTM Model
+
+Run:
+
+```bash
+python src/lstm_model.py
+```
+
+The model will:
+
+- Normalize input data
+- Create time sequences
+- Train the neural network
+- Generate predictions
+- Save the trained model
+
+
+Output:
+
+```
+results/
+
+└── LSTM_forecast.png
+```
+
+---
+
+# Step 4: Evaluate Models
+
+Run:
+
+```bash
+python src/evaluate.py
+```
+
+The evaluation script compares SARIMAX and LSTM using:
+
+- RMSE
+- MAE
+- R² Score
+- MAPE
+
+
+Example output:
+
+```
+===== SARIMAX Evaluation =====
+
+RMSE : 1262.4350
+MAE  : 959.4601
+R2   : -1.0149
+MAPE : 46.4661%
+
+
+===== LSTM Evaluation =====
+
+RMSE : 1637.7253
+MAE  : 1444.5431
+R2   : -2.2842
+MAPE : 84.0315%
+```
+
+---
+
+# Step 5: Generate Future Forecast
+
+Run:
+
+```bash
+python src/forecast.py
+```
+
+Output:
+
+```
+results/
+
+└── future_forecast.png
+```
+
+---
+
+# Project Structure
+
+```
+Forecasting-Botswana-Human-Capital/
+
+│
+├── data/
+│   └── human_capital_dataset.csv
+│
+├── src/
+│   ├── features.py
+│   ├── sarimax_model.py
+│   ├── lstm_model.py
+│   ├── evaluate.py
+│   └── forecast.py
+│
+├── models/
+│   ├── sarimax_model.pkl
+│   └── lstm_model.h5
+│
+├── results/
+│   ├── SARIMAX_forecast.png
+│   ├── LSTM_forecast.png
+│   ├── model_comparison.png
+│   ├── residuals.png
+│   └── future_forecast.png
+│
+├── requirements.txt
+│
+└── README.md
+```
 
 ---
 
@@ -224,45 +469,13 @@ Forecast output:
 
 ---
 
-# Project Structure
-
-```
-Forecasting-Botswana-Human-Capital/
-
-│
-├── data/
-│   └── human_capital_dataset.csv
-│
-├── src/
-│   ├── feature_engineering.py
-│   ├── sarimax_model.py
-│   ├── lstm_model.py
-│   ├── evaluate.py
-│   └── forecast.py
-│
-├── models/
-│   ├── sarimax_model.pkl
-│   └── lstm_model.h5
-│
-├── images/
-│   ├── sarimax_forecast.png
-│   ├── lstm_forecast.png
-│   ├── model_comparison.png
-│   ├── residuals.png
-│   └── future_forecast.png
-│
-└── README.md
-```
-
----
-
 # Conclusion
 
-This project demonstrates the application of statistical and deep learning techniques for forecasting Botswana's human capital development.
+This project demonstrates the application of statistical and deep learning approaches for forecasting Botswana's human capital development.
 
-By comparing SARIMAX and LSTM models, the project identified SARIMAX as the most suitable forecasting approach based on RMSE, MAE, and MAPE performance.
+By comparing SARIMAX and LSTM models, SARIMAX achieved better forecasting performance based on RMSE, MAE, and MAPE evaluation metrics.
 
-The developed forecasting framework can support future decision-making by providing insights into expected human capital trends and enabling proactive development planning.
+The developed forecasting framework provides insights into future human capital trends and can support data-driven planning and policy decisions for Botswana's development.
 
 ---
 
