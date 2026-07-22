@@ -1,8 +1,21 @@
+# Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.venv/
+
+# Virtual environment
 venv/
-models/*.pkl
-models/*.pt
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model files (optional)
+*.h5
+*.keras
+
+# Large datasets
+*.csv
+
+# OS files
 .DS_Store
+Thumbs.db
