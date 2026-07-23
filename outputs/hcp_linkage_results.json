@@ -1,0 +1,10 @@
+{
+  "ols_coef_food_inflation_on_cpi_mom": 0.022624500246067377,
+  "ols_pvalue": 0.0015793416366100851,
+  "ols_r2": 0.03597405647382601,
+  "granger_p_zaf_causes_bwa_lag3": 0.0008740147655281403,
+  "granger_p_bwa_causes_zaf_lag3": 0.1078642797577244,
+  "dec2023_cpi_general": 146.861601,
+  "projected_dec2024_cpi_general": 155.9940068898123,
+  "projected_2024_cumulative_cpi_growth_pct": 6.218375550605848
+}

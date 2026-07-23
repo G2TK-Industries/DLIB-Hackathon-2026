@@ -1,0 +1,29 @@
+{
+  "model": "LSTM on monthly log Food-CPI growth; direct 12-step output; 5-seed ensemble",
+  "window": 24,
+  "horizon": 12,
+  "hidden_units": 16,
+  "seeds": [
+    7,
+    19,
+    42,
+    73,
+    101
+  ],
+  "selected_epochs": [
+    38,
+    44,
+    47,
+    33,
+    51
+  ],
+  "n_train_samples": 213,
+  "n_early_stop_validation_samples": 38,
+  "n_production_samples": 252,
+  "test_period": "2023-01 to 2023-12",
+  "test_rmse": 0.6763589585119526,
+  "test_mae": 0.5616586299499261,
+  "test_smape_pct": 5.4209870761406735,
+  "no_2024_feature_values_used": true,
+  "target_identity": "100 * (Food_CPI_t / Food_CPI_t-12 - 1)"
+}
